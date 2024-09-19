@@ -12,7 +12,7 @@ let movementFar = [];
 
 
 function setup() {
-    createCanvas(screen.width, screen.height);
+    createCanvas(window.innerWidth, window.innerHeight);
     noCursor();
      circleReady = false;
      isWhite = false;
@@ -60,11 +60,11 @@ function setup() {
      yPolarity = Math.random() < 0.5;
 
      for (let i = 0; i < 15; i++) {
-      rectHeightClose.push(random(height*0.125, height*0.4));
+      rectHeightClose.push(random(height*0.2, height*0.5));
       movementClose.push(0);
      }
      for (let i = 0; i < 25; i++) {
-      rectHeightFar.push(random(height*0.04, height*0.135));
+      rectHeightFar.push(random(height*0.1, height*0.25));
       movementFar.push(0);
      }
      
@@ -98,7 +98,7 @@ function setup() {
       fill(farColor);
       rect(j, rectHeightFar[farCount], width/25, height);
       rectHeightFar[farCount] += movementFar[farCount];
-      if (rectHeightFar[farCount] > height*0.135 || rectHeightFar[farCount] < height*0.04) {
+      if (rectHeightFar[farCount] > height*0.25 || rectHeightFar[farCount] < height*0.1) {
         movementFar[farCount] = -movementFar[farCount];
       }
       farCount++;
@@ -108,7 +108,7 @@ function setup() {
       fill(closeColor);
       rect(k, rectHeightClose[closeCount], width/15, height);
       rectHeightClose[closeCount] += movementClose[closeCount];
-      if (rectHeightClose[closeCount] > height*0.4 || rectHeightClose[closeCount] < height*0.125) {
+      if (rectHeightClose[closeCount] > height*0.5 || rectHeightClose[closeCount] < height*0.2) {
         movementClose[closeCount] = -movementClose[closeCount];
       }
       closeCount++;
@@ -125,7 +125,7 @@ function setup() {
     isWhite = false;
     strokeWeight(5);
     stroke(200);
-    rect(width*.05,height*.5,width*0.4,width*0.25);
+    rect(width*.05,height*.5,width*0.4,width*0.2);
     strokeWeight(2);
     stroke(0);
 
@@ -133,37 +133,37 @@ function setup() {
     isRed = true;
     fillRed();
     isRed = false;
-    ellipse(width*.55,height*.8,width*0.1,width*0.1);
+    ellipse(width*.55,height*.8,width*0.08,width*0.08);
 
     //yellow
     isYellow = true;
     fillYellow();
     isYellow = false;
-    ellipse(width*0.7,height*0.8,width*0.1,width*0.1);
+    ellipse(width*0.7,height*0.8,width*0.08,width*0.08);
 
     //green
     isGreen = true;
     fillGreen();
     isGreen = false;
-    ellipse(width*.55,height*.6,width*0.1,width*0.1);
+    ellipse(width*.55,height*.6,width*0.08,width*0.08);
 
     //orange
     isOrange = true;
     fillOrange();
     isOrange = false; 
-    ellipse(width*.7,height*.6,width*0.1,width*0.1);
+    ellipse(width*.7,height*.6,width*0.08,width*0.08);
 
     //blue
     isBlue = true;
     fillBlue();
     isBlue = false;
-    ellipse(width*.85,height*.8,width*0.1,width*0.1);
+    ellipse(width*.85,height*.8,width*0.08,width*0.08);
 
     //purple
     isPurple = true;
     fillPurple();
     isPurple = false;
-    ellipse(width*.85,height*.6,width*0.1,width*0.1);
+    ellipse(width*.85,height*.6,width*0.08,width*0.08);
 
     paintBlue();
     paintPurple();
@@ -248,7 +248,7 @@ function setup() {
   }
 
   function paintBlue() {
-    if (mouseX > width*.8 && mouseX < width*.9 && mouseY > height*.8 - width * 0.05 && mouseY < height*.8 + width * 0.05 && mouseIsPressed) {
+    if (mouseX > width*.8 && mouseX < width*.9 && mouseY > height*.8 - width * 0.04 && mouseY < height*.8 + width * 0.04 && mouseIsPressed) {
       circleColor = color(0,171,231,200);
       hasColor = true;
       blueValue = true;
@@ -260,7 +260,7 @@ function setup() {
     }
   }
   function paintPurple() {
-    if (mouseX > width*.8 && mouseX < width*.9 && mouseY > height*.6 - width * 0.05 && mouseY < height*.6 + width * 0.05 && mouseIsPressed) {
+    if (mouseX > width*.8 && mouseX < width*.9 && mouseY > height*.6 - width * 0.04 && mouseY < height*.6 + width * 0.04 && mouseIsPressed) {
       circleColor = color(115,25,95,200);
       hasColor = true;
       purpleValue = true;
@@ -272,7 +272,7 @@ function setup() {
     }
   }
   function paintGreen() {
-    if (mouseX > width*.5 && mouseX < width*.6 && mouseY > height*.6 - width * 0.05 && mouseY < height*.6 + width * 0.05 && mouseIsPressed) {
+    if (mouseX > width*.5 && mouseX < width*.6 && mouseY > height*.6 - width * 0.04 && mouseY < height*.6 + width * 0.04 && mouseIsPressed) {
       circleColor = color(22,244,208,200);
       hasColor = true;
       greenValue = true;
@@ -284,7 +284,7 @@ function setup() {
     }
   }
   function paintOrange() {
-    if (mouseX > width*.65 && mouseX < width*.75 && mouseY > height*.6 - width * 0.05 && mouseY < height*.6 + width * 0.05 && mouseIsPressed) {
+    if (mouseX > width*.65 && mouseX < width*.75 && mouseY > height*.6 - width * 0.04 && mouseY < height*.6 + width * 0.04 && mouseIsPressed) {
       circleColor = color(255,125,0,200);
       hasColor = true;
       orangeValue = true;
@@ -296,7 +296,7 @@ function setup() {
     }
   }
   function paintRed() {
-    if (mouseX > width*.5 && mouseX < width*.6 && mouseY > height*.8 - width * 0.05 && mouseY < height*.8 + width * 0.05 && mouseIsPressed) {
+    if (mouseX > width*.5 && mouseX < width*.6 && mouseY > height*.8 - width * 0.04 && mouseY < height*.8 + width * 0.04 && mouseIsPressed) {
       circleColor = color(237,37,78,200);
       hasColor = true;
       redValue = true;
@@ -308,7 +308,7 @@ function setup() {
     }
   }
   function paintYellow() {
-    if (mouseX > width*.65 && mouseX < width*.75 && mouseY > height*.8 - width * 0.05 && mouseY < height*.8 + width * 0.05 && mouseIsPressed) {
+    if (mouseX > width*.65 && mouseX < width*.75 && mouseY > height*.8 - width * 0.04 && mouseY < height*.8 + width * 0.04 && mouseIsPressed) {
       circleColor = color(249,220,92,200);
       hasColor = true;
       yellowValue = true;
@@ -556,7 +556,7 @@ function setup() {
         this.width -= 1;
         this.height -= 1;
       }
-      if (this.y + this.height/2 > height*0.5 + width*0.25) {
+      if (this.y + this.height/2 > height*0.5 + width*0.2) {
         this.ySpeed = -this.ySpeed;
         this.width -= 1;
         this.height -= 1;
