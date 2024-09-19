@@ -12,7 +12,7 @@ let movementFar = [];
 
 
 function setup() {
-    createCanvas(1000, 600);
+    createCanvas(screen.width, screen.height);
     noCursor();
      circleReady = false;
      isWhite = false;
@@ -60,11 +60,11 @@ function setup() {
      yPolarity = Math.random() < 0.5;
 
      for (let i = 0; i < 15; i++) {
-      rectHeightClose.push(random(125, 250));
+      rectHeightClose.push(random(height*0.125, height*0.4));
       movementClose.push(0);
      }
      for (let i = 0; i < 25; i++) {
-      rectHeightFar.push(random(40, 135));
+      rectHeightFar.push(random(height*0.04, height*0.135));
       movementFar.push(0);
      }
      
@@ -98,7 +98,7 @@ function setup() {
       fill(farColor);
       rect(j, rectHeightFar[farCount], width/25, height);
       rectHeightFar[farCount] += movementFar[farCount];
-      if (rectHeightFar[farCount] > 135 || rectHeightFar[farCount] < 40) {
+      if (rectHeightFar[farCount] > height*0.135 || rectHeightFar[farCount] < height*0.04) {
         movementFar[farCount] = -movementFar[farCount];
       }
       farCount++;
@@ -108,7 +108,7 @@ function setup() {
       fill(closeColor);
       rect(k, rectHeightClose[closeCount], width/15, height);
       rectHeightClose[closeCount] += movementClose[closeCount];
-      if (rectHeightClose[closeCount] > 250 || rectHeightClose[closeCount] < 125) {
+      if (rectHeightClose[closeCount] > height*0.4 || rectHeightClose[closeCount] < height*0.125) {
         movementClose[closeCount] = -movementClose[closeCount];
       }
       closeCount++;
